@@ -241,6 +241,13 @@ shelly:
 Shelly devices rely on [SNTP](https://en.wikipedia.org/wiki/Network_Time_Protocol#SNTP) for features like power measurement.
 Please check from the device Web UI that the configured server is reachable.
 
+## Cover offset
+There are slat blinds that take some seconds from the time the motor starts to rotate until the bottom slat is off the floor.
+At this moment, shelly reports a position greater than 0 or 1, which could be the desired cover position in the Home Assistant UI.
+If the device to configure is a shelly 2.5 in 'roller' mode, at the end of the wizard setup you can use the offset parameter. 
+This value should be the shelly's position when the bottom slat is starting to move. This will be the position 1% of the cover. And from 1% to 100% will be calculated proportionally.
+This new parameter is optional and has no impact if it is set to 0.
+
 ## Known issues and limitations
 
 - Only supports firmware 1.8 and later for generation 1 devices
